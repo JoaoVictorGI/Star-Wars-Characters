@@ -8,33 +8,77 @@ window.onload = async () => {
     alert("Error loading cards");
   }
 
-  async function loadCharacters(url) {
-    const mainContent = document.getElementById("main-content");
-    mainContent.innerHTML = "";
+  const nextButton = document.getElementById("next-button");
+  const backButton = document.getElementById("back-button");
 
-    try {
-      response = await fetch(url);
-      responseJson = await response.json();
-      responseJson.results.forEach((character) => {
-        const card = document.createElement("div");
-        card.style.backgroundImage = `url('https://starwars-visualguide.com/assets/img/characters/1.jpg')`;
-        card.className = "cards";
-
-        characterNameBG = document.createElement("div");
-        characterNameBG.className = "character-name-bg";
-
-        characterName = document.createElement("span");
-        characterName.className = "character-name";
-        characterName.innerText = `${character.name}`;
-
-        characterNameBG.appendChild(characterName);
-        card.appendChild(characterNameBG);
-        mainContent.appendChild(card);
-      });
-      currentPageUrl = url;
-    } catch (error) {
-      alert("Error loading characters");
-      console.log(error);
-    }
-  }
+  nextButton.addEventListener("click", loadNextPage);
+  backButton.addEventListener("click", loadPreviousPage);
 };
+
+async function loadCharacters(url) {
+  const mainContent = document.getElementById("main-content");
+  mainContent.innerHTML = "";
+
+  try {
+    response = await fetch(url);
+    responseJson = await response.json();
+    responseJson.results.forEach((character) => {
+      const card = document.createElement("div");
+      card.style.backgroundImage = `url('https://starwars-visualguide.com/assets/img/characters/${character.url.replace(
+        /\D/g,
+        ""
+      )}.jpg')`;
+      card.className = "cards";
+
+      characterNameBG = document.createElement("div");
+      characterNameBG.className = "character-name-bg";
+
+      characterName = document.createElement("span");
+      characterName.className = "character-name";
+      characterName.innerText = `${character.name}`.toLowerCase();
+
+      characterNameBG.appendChild(characterName);
+      card.appendChild(characterNameBG);
+      mainContent.appendChild(card);
+    });
+
+    const nextButton = document.getElementById("next-button");
+    const backButton = document.getElementById("back-button");
+
+    nextButton.disabled = !responseJson.next;
+    backButton.disabled = !responseJson.previous;
+
+    backButton.style.visibility = responseJson.previous ? "visible" : "hidden";
+
+    currentPageUrl = url;
+  } catch (error) {
+    alert("Error loading characters");
+    console.log(error);
+  }
+}
+
+async function loadNextPage() {
+  if (!currentPageUrl) return;
+
+  try {
+    const response = await fetch(currentPageUrl);
+    const responseJson = await response.json();
+
+    await loadCharacters(responseJson.next);
+  } catch (error) {
+    console.log(error);
+    alert("Error loading next page");
+  }
+}
+
+async function loadPreviousPage() {
+  try {
+    const response = await fetch(currentPageUrl);
+    const responseJson = await response.json();
+
+    await loadCharacters(responseJson.previous);
+  } catch (error) {
+    console.log(error);
+    alert("Error loading previous page");
+  }
+}
