@@ -22,6 +22,16 @@
     .character-name {
         @apply text-yellow-400 text-base 
     }
+    .character-image {
+        @apply w-48 h-48 rounded-full bg-cover
+    }
+    .character-details {
+        @apply text-base font-light text-yellow-400
+    }
+}
+
+.character-image {
+    background-position: 50% 10%;
 }
 
 button {
