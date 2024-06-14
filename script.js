@@ -39,6 +39,52 @@ async function loadCharacters(url) {
 
       characterNameBG.appendChild(characterName);
       card.appendChild(characterNameBG);
+
+      card.onclick = () => {
+        const modal = document.getElementById("modal");
+        modal.style.visibility = "visible";
+
+        const modalContent = document.getElementById("modal-content");
+        modalContent.innerHTML = "";
+
+        const characterImage = document.createElement("div");
+        characterImage.style.backgroundImage = `url('https://starwars-visualguide.com/assets/img/characters/${character.url.replace(
+          /\D/g,
+          ""
+        )}.jpg')`;
+        characterImage.className = "character-image";
+
+        const name = document.createElement("span");
+        name.className = "character-details";
+        name.innerText = `name: ${character.name}`.toLowerCase();
+
+        const characterHeight = document.createElement("span");
+        characterHeight.className = "character-details";
+        characterHeight.innerText = `height: ${convertHeight(
+          character.height
+        )}m`;
+
+        const characterMass = document.createElement("span");
+        characterMass.className = "character-details";
+        characterMass.innerText = `mass: ${character.mass}kg`;
+
+        const characterEyeColor = document.createElement("span");
+        characterEyeColor.className = "character-details";
+        characterEyeColor.innerText = `eye color: ${character.eye_color}`;
+
+        const characterBirthYear = document.createElement("span");
+        characterBirthYear.className = "character-details";
+        characterBirthYear.innerText =
+          `birth year: ${character.birth_year}`.toLowerCase();
+
+        modalContent.appendChild(characterImage);
+        modalContent.appendChild(name);
+        modalContent.appendChild(characterHeight);
+        modalContent.appendChild(characterMass);
+        modalContent.appendChild(characterEyeColor);
+        modalContent.appendChild(characterBirthYear);
+      };
+
       mainContent.appendChild(card);
     });
 
@@ -80,5 +126,17 @@ async function loadPreviousPage() {
   } catch (error) {
     console.log(error);
     alert("Error loading previous page");
+  }
+}
+
+function hideModal() {
+  const modal = document.getElementById("modal");
+
+  modal.style.visibility = "hidden";
+}
+
+function convertHeight(height) {
+  if (height !== "unknown") {
+    return (height / 100).toFixed(2);
   }
 }
