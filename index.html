@@ -1,14 +1,65 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Star Wars Characters</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="./assets/millennium-falcon.png" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Star Wars Characters</title>
+  <link rel="stylesheet" href="output.css" />
+  <link rel="shortcut icon" href="./assets/millennium-falcon.png" type="image/x-icon" />
+  <link href="https://fonts.cdnfonts.com/css/star-wars" />
 </head>
-<body>
-    
-    <script src="./script.js"></script>
+
+<body class="bg-star-wars bg-cover">
+  <header class="h-16 flex items-center justify-around">
+    <a href="./index.html">
+      <div class="logo w-80 h-32 flex justify-center items-center">
+        <img src="./assets/star-wars-logo.png" alt="logo" class="logo-img w-2/5 h-auto" />
+        <span class="logo-text text-xl text-white">Characters</span>
+      </div>
+    </a>
+
+    <div class="socials w-16 flex justify-between">
+      <a href="https:github.com/JoaoVictorGI" target="_blank">
+        <i class="fa-brands fa-github text-2xl text-white hover:text-yellow-400"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/joão-victor-gomes-izidoro-a497642b8" target="_blank">
+        <i class="fa-brands fa-linkedin-in text-2xl text-white hover:text-yellow-400"></i>
+      </a>
+    </div>
+  </header>
+
+  <div class="main-container flex items-center flex-col w-full py-5 px-0">
+    <h2 class="mb-5 text-white font-light">
+      Meet all the Star Wars characters
+    </h2>
+
+    <div class="main-content w-2/3 flex justify-center flex-wrap gap-x-5 gap-y-2.5 py-0 px-5" id="main-content"></div>
+    <div class="buttons w-3/5 flex items-center justify-around mt-5">
+      <button
+        class="w-16 h-6 bg-yellow-400 text-black font-bold rounded cursor-pointer hover:bg-black hover:text-yellow-400 font-sans invisible"
+        id="back-button" disabled>
+        Previous
+      </button>
+      <button
+        class="w-20 h-7 bg-yellow-400 text-black font-bold rounded cursor-pointer hover:bg-black hover:text-yellow-400 mb-2 font-sans"
+        id="next-button" disabled>
+        Next
+      </button>
+    </div>
+  </div>
+
+  <footer class="w-full flex flex-col items-center gap-y-2.5" style="margin: 40px 0 20px 0">
+    <p class="footer-logo text-xl font-medium text-white">
+      Star Wars Characters
+    </p>
+    <p class="copyright font-sans font-medium text-white">
+      Developed by &copy; João Victor
+    </p>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/245118cfd7.js" crossorigin="anonymous"></script>
+  <script src="./script.js"></script>
 </body>
+
 </html>
