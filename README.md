@@ -16,4 +16,4 @@ This project is a website that provides information about the characters in the 
 
 This software is available under the following licenses:
 
-- [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html)
+- [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.html)
