@@ -2,7 +2,7 @@
 
 # Star Wars Characters
 
-This project is a website that provides information about the characters in the Star Wars franchise with images and names of the characters on cards and a modal showing weight, height, eye color and birth year. Using the [Swapi] api(https://swapi.dev)
+This project is a website that provides information about the characters in the Star Wars franchise with images and names of the characters on cards and a modal showing weight, height, eye color and birth year. Using the [Swapi](https://swapi.dev)
 
 [Access the project here](https://joaovictorgi.github.io/Star-Wars-Characters/)
 ## Technologies
