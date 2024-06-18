@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "star-wars": "url('./assets/background.png')",
+        "star-wars": "url('./assets/imgs/background.png')",
       },
       fontFamily: {
         starWars: ["Star Wars", "system-ui", "sans-serif"],

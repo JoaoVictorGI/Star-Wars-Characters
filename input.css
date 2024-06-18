@@ -8,7 +8,7 @@
     }
     @font-face {
         font-family: "Starjedi";
-        src: url(./assets/Starjedi.ttf);
+        src: url(./assets/fonts/Starjedi.ttf);
     }
 }
 
@@ -23,7 +23,7 @@
         @apply text-yellow-400 text-base 
     }
     .character-image {
-        @apply w-48 h-48 rounded-full bg-cover
+        @apply w-28 sm:w-40 md:w-48 h-28 sm:h-40 md:h-48 rounded-full bg-cover
     }
     .character-details {
         @apply text-base font-light text-yellow-400
