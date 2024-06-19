@@ -1,4 +1,4 @@
-<img src="./assets/screenshot.png"/>
+<img src="./assets/imgs/screenshot.png"/>
 
 # Star Wars Characters
 
