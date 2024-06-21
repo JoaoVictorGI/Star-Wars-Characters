@@ -3,39 +3,39 @@
 @tailwind utilities;
 
 @layer base {
-    html {
-        font-family: "Starjedi", system-ui, sans-serif;
-    }
-    @font-face {
-        font-family: "Starjedi";
-        src: url(./assets/fonts/Starjedi.ttf);
-    }
+  html {
+    font-family: "Starjedi", system-ui, sans-serif;
+  }
+  @font-face {
+    font-family: "Starjedi";
+    src: url(./assets/fonts/Starjedi.ttf);
+  }
 }
 
 @layer components {
-    .cards {
-        @apply w-56 h-96 bg-center bg-cover flex items-end rounded-lg cursor-pointer duration-500 p-1.5 hover:scale-105
-    }
-    .character-name-bg {
-        @apply w-full h-7 bg-black/50 flex items-center justify-center rounded-lg
-    }
-    .character-name {
-        @apply text-yellow-400 text-base 
-    }
-    .character-image {
-        @apply w-28 sm:w-40 md:w-48 h-28 sm:h-40 md:h-48 rounded-full bg-cover
-    }
-    .character-details {
-        @apply text-base font-light text-yellow-400
-    }
+  .cards {
+    @apply w-56 h-96 bg-center bg-cover flex items-end rounded-lg cursor-pointer duration-500 p-1.5 hover:scale-105;
+  }
+  .character-name-bg {
+    @apply w-full h-7 bg-black/50 flex items-center justify-center rounded-lg;
+  }
+  .character-name {
+    @apply text-yellow-400 text-base;
+  }
+  .character-image {
+    @apply w-28 2xl:w-48 h-28 2xl:h-48 rounded-full bg-cover;
+  }
+  .character-details {
+    @apply text-base font-light text-yellow-400;
+  }
 }
 
 .character-image {
-    background-position: 50% 10%;
+  background-position: 50% 10%;
 }
 
 button {
-    border: 1px solid #000;
-    outline: none;
-    transition: 0.3s;
+  border: 1px solid #000;
+  outline: none;
+  transition: 0.3s;
 }
